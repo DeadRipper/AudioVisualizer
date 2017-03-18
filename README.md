@@ -1,2 +1,1 @@
 # AudioVisualizer
-Run in Firefox
