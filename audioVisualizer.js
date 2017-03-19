@@ -10,7 +10,7 @@ var context = new (window.AudioContext || window.webkitAudioContext)();
 var analyser = context.createAnalyser()
 
 var audio = new Audio()
-audio.src = 'Vanic - Too Soon ft. Maty Noyes (Heroless Remix)_j2IybhV3EL0_youtube.mp3'//Vanic - Too Soon ft. Maty Noyes (Heroless Remix)_j2IybhV3EL0_youtube
+audio.src = 'Vanic - Too Soon ft. Maty Noyes (Heroless Remix)_j2IybhV3EL0_youtube.mp3'//
 audio.controls = true
 audio.autoplay = true
 audio.loop = true
