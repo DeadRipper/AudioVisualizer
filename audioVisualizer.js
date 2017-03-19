@@ -10,7 +10,7 @@ var context = new (window.AudioContext || window.webkitAudioContext)();
 var analyser = context.createAnalyser()
 
 var audio = new Audio()
-audio.src = 'Vanic - Too Soon ft. Maty Noyes (Heroless Remix)_j2IybhV3EL0_youtube.mp3'//
+audio.src = 'Vanic - Too Soon ft. Maty Noyes (Heroless Remix).mp3'
 audio.controls = true
 audio.autoplay = true
 audio.loop = true
@@ -42,7 +42,6 @@ function DrawWaves() {
     ctx.clearRect(0, 0, width, height)
     analyser.getByteTimeDomainData(dataArray)
     ctx.lineWidth = 2
-    //DrawTimeLine()
     ctx.fillStyle = DARK_GRAY
     ctx.beginPath()
 
@@ -57,28 +56,12 @@ function DrawWaves() {
           ctx.moveTo(x, y)
         else
           ctx.lineTo(x, y)
+
         if(x <= audio.currentTime*width/audio.duration)
             x += sliceWidth
     }
-    //ctx.lineTo(width, height/2)
+    ctx.fillStyle = LIGHT_GRAY
+    ctx.fillRect(audio.currentTime*width/audio.duration, 0, audio.currentTime*width/audio.duration+width, height)
     ctx.stroke()
 }
 DrawWaves()
-
-function DrawTimeLine() {
-    //console.log(12)
-    ctx.clearRect(0, 0, width, height)
-    ctx.fillStyle = LIGHT_GRAY
-    ctx.fillRect(0, height-barHeight, width, barHeight)
-    ctx.fillStyle = DARK_GRAY
-    ctx.fillRect(0, height-barHeight, audio.currentTime*width/audio.duration,
-                 barHeight)
-}
-/*
-function Run() {
-    mainGameCycle = setInterval(function() {
-        DrawTimeLine()
-    },time)
-}*/
-
-//Run()
